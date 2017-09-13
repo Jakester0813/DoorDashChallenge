@@ -17,4 +17,6 @@ public class DoorDashContants {
     public static final String TIMED_OUT = "Your request has timed out";
     public static final String SERVICE_WRONG = "Something's wrong with the server";
     public static final String SERVICE_UNAVAILABLE = "The service is unavailable";
+
+    
 }

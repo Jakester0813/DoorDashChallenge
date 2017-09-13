@@ -66,7 +66,7 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.Rest
             Glide.with(pContext).load(resturant.getCoverImgUrl()).into(mResturantCover);
             mResturantNameText.setText(resturant.getBusiness().getName());
             mDescriptionText.setText(resturant.getDescription());
-
+            mStatusText.setText(resturant.getStatus());
         }
     }
 }

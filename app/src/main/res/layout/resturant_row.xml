@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_vertical"
+    android:layout_height="wrap_content"
     android:padding="20dp">
 
     <ImageView
         android:id="@+id/iv_resturant"
         android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        android:paddingRight="20dp"
         />
 
     <LinearLayout
+        android:id="@+id/ll_resturant"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@+id/iv_resturant"
         android:orientation="vertical">
 
         <TextView
@@ -26,15 +29,21 @@
         <TextView
             android:id="@+id/tv_resturant_desc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="25"
+            android:singleLine="true"
+            android:ellipsize="end"/>
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
+        android:id="@+id/ll_fav_status"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right|center_vertical"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <ImageView
@@ -51,9 +60,10 @@
         <TextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="10sp"/>
 
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

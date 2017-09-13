@@ -56,12 +56,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <ImageView
-            android:id="@+id/iv_favorite_filled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
-
         <TextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"

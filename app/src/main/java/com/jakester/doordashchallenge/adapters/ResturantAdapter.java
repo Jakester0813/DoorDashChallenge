@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jakester.doordashchallenge.R;
+import com.jakester.doordashchallenge.models.FavoritesManager;
 import com.jakester.doordashchallenge.models.Resturant;
 
 import java.util.List;
@@ -49,7 +50,7 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.Rest
 
     public static class ResturantViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView mResturantCover, mFavorite, mFavoriteHighlighted;
+        ImageView mResturantCover, mFavorite;
         TextView mResturantNameText, mDescriptionText, mStatusText;
 
         public ResturantViewHolder(View itemView){
@@ -58,15 +59,28 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.Rest
             this.mResturantNameText = (TextView) itemView.findViewById(R.id.tv_resturant);
             this.mDescriptionText = (TextView) itemView.findViewById(R.id.tv_resturant_desc);
             this.mFavorite = (ImageView) itemView.findViewById(R.id.iv_favorite);
-            this.mFavoriteHighlighted = (ImageView) itemView.findViewById(R.id.iv_favorite_filled);
             this.mStatusText = (TextView) itemView.findViewById(R.id.tv_status);
         }
 
-        public void bind(Resturant resturant, Context pContext){
+        public void bind(final Resturant resturant, final Context pContext){
             Glide.with(pContext).load(resturant.getCoverImgUrl()).into(mResturantCover);
             mResturantNameText.setText(resturant.getBusiness().getName());
             mDescriptionText.setText(resturant.getDescription());
             mStatusText.setText(resturant.getStatus());
+            mFavorite.setImageResource(resturant.getFavorite() ? R.drawable.ic_star_red_24dp : R.drawable.ic_star_border_black_24dp);
+            mFavorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mFavorite.setImageResource(resturant.getFavorite() ? R.drawable.ic_star_border_black_24dp : R.drawable.ic_star_red_24dp);
+                    if(resturant.getFavorite()){
+                        FavoritesManager.getInstance(pContext).removeFavorite(resturant.getBusiness().getId());
+                    }
+                    else{
+                        FavoritesManager.getInstance(pContext).addFavorite(resturant.getBusiness().getId());
+                    }
+                    resturant.setFavorited(resturant.getFavorite() ? false : true);
+                }
+            });
         }
     }
 }

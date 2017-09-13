@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.jakester.doordashchallenge.R;
 import com.jakester.doordashchallenge.adapters.ResturantAdapter;
 import com.jakester.doordashchallenge.interfaces.ResturantsInterface;
+import com.jakester.doordashchallenge.models.FavoritesManager;
 import com.jakester.doordashchallenge.models.Resturant;
 import com.jakester.doordashchallenge.models.ResturantsResponse;
 import com.jakester.doordashchallenge.network.RestClient;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FavoritesManager.getInstance(this).getFavorites();
         mResturantRecycler = (RecyclerView) findViewById(R.id.rv_resturants);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mResturantRecycler.setLayoutManager(mLinearLayoutManager);
@@ -46,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Resturant>> call, Response<List<Resturant>> response) {
 
                 if(response.isSuccessful()) {
-                    mResturantAdapter.setAdapter(response.body());
+                    List<Resturant> resturants = FavoritesManager.getInstance(MainActivity.this).rearrangeResturantsWithFavorites(response.body());
+                    mResturantAdapter.setAdapter(resturants);
                     mResturantAdapter.notifyDataSetChanged();
                     mResturantRecycler.setAdapter(mResturantAdapter);
                 }else {
@@ -73,5 +76,16 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        FavoritesManager.getInstance(this).storeFavorites();
     }
 }

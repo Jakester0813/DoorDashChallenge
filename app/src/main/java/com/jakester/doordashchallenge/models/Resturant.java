@@ -31,7 +31,11 @@ public class Resturant {
     @Expose
     String mDeliveryFee;
 
-    public Resturant() {}
+    boolean favorited;
+
+    public Resturant() {
+        favorited = false;
+    }
 
 
     public void setBusiness(Business pBusiness){
@@ -76,5 +80,13 @@ public class Resturant {
 
     public String getDeliveryTime(){
         return mDeliveryFee;
+    }
+
+    public void setFavorited(boolean favorite){
+        this.favorited = favorite;
+    }
+
+    public boolean getFavorite(){
+        return favorited;
     }
 }

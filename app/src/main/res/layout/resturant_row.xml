@@ -2,21 +2,25 @@
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:layout_centerVertical="true"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="10dp">
 
     <ImageView
         android:id="@+id/iv_resturant"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
         android:paddingRight="20dp"
         />
 
     <LinearLayout
         android:id="@+id/ll_resturant"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/iv_resturant"
         android:orientation="vertical">
 
@@ -24,15 +28,16 @@
             android:id="@+id/tv_resturant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tv_resturant_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLength="25"
-            android:singleLine="true"
-            android:ellipsize="end"/>
+            android:ellipsize="end"
+            android:maxLines="1"/>
 
 
     </LinearLayout>
@@ -42,7 +47,7 @@
         android:layout_width="60dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:layout_gravity="right|center_vertical"
+        android:layout_centerVertical="true"
         android:padding="10dp"
         android:orientation="vertical">
 

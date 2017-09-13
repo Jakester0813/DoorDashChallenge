@@ -1,10 +1,5 @@
 package com.jakester.doordashchallenge.models;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.google.gson.Gson;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 

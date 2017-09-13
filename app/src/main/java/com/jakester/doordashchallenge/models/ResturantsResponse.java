@@ -3,7 +3,6 @@ package com.jakester.doordashchallenge.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 /**

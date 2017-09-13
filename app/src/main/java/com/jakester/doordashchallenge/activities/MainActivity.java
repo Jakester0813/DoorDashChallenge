@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Toast;
 
 import com.jakester.doordashchallenge.R;
@@ -12,7 +11,6 @@ import com.jakester.doordashchallenge.adapters.ResturantAdapter;
 import com.jakester.doordashchallenge.interfaces.ResturantsInterface;
 import com.jakester.doordashchallenge.models.FavoritesManager;
 import com.jakester.doordashchallenge.models.Resturant;
-import com.jakester.doordashchallenge.models.ResturantsResponse;
 import com.jakester.doordashchallenge.network.RestClient;
 
 import java.util.List;

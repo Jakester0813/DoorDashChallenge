@@ -1,13 +1,11 @@
 package com.jakester.doordashchallenge.interfaces;
 
 import com.jakester.doordashchallenge.models.Resturant;
-import com.jakester.doordashchallenge.models.ResturantsResponse;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 /**
  * Created by Jake on 9/12/2017.

@@ -10,7 +10,7 @@ public class DoorDashContants {
     public static final String FAVORITE = "Favorite";
     public static final String EMPTY_STRING = "";
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "https://api.doordash.com/";
     public static final String QUERY_URL = "v2/restaurant/?lat=37.422740&lng=-122.139956";
     //Errors
     public static final String NOT_FOUND = "Your request cannot be found";
@@ -18,5 +18,5 @@ public class DoorDashContants {
     public static final String SERVICE_WRONG = "Something's wrong with the server";
     public static final String SERVICE_UNAVAILABLE = "The service is unavailable";
 
-    
+
 }

@@ -1,5 +1,7 @@
 package com.jakester.doordashchallenge.network;
 
+import com.jakester.doordashchallenge.utils.DoorDashContants;
+
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,7 +20,7 @@ public class RestClient {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.doordash.com/")
+                .baseUrl(DoorDashContants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

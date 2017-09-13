@@ -2,6 +2,9 @@ package com.jakester.doordashchallenge.models;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.jakester.doordashchallenge.utils.DoorDashContants;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,7 @@ public class FavoritesManager {
 
     private FavoritesManager(Context mContext){
         mFavorites = new Favorites();
-        mPrefs = mContext.getSharedPreferences("ResturantPrefs", Context.MODE_PRIVATE);
+        mPrefs = mContext.getSharedPreferences(DoorDashContants.FAVORITE_PREFS, Context.MODE_PRIVATE);
     }
 
     public void addFavorite(String id){
@@ -36,12 +39,12 @@ public class FavoritesManager {
 
     public void storeFavorites(){
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        prefsEditor.putString("Favorite", mFavorites.convertToStringArray());
+        prefsEditor.putString(DoorDashContants.FAVORITE, mFavorites.convertToStringArray());
         prefsEditor.commit();
     }
 
     public void getFavorites(){
-        String json = mPrefs.getString("Favorite", "");
+        String json = mPrefs.getString(DoorDashContants.FAVORITE, DoorDashContants.EMPTY_STRING);
         mFavorites.convertToHashSet(json);
 
     }

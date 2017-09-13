@@ -12,6 +12,7 @@ import com.jakester.doordashchallenge.interfaces.ResturantsInterface;
 import com.jakester.doordashchallenge.models.FavoritesManager;
 import com.jakester.doordashchallenge.models.Resturant;
 import com.jakester.doordashchallenge.network.RestClient;
+import com.jakester.doordashchallenge.utils.DoorDashContants;
 
 import java.util.List;
 
@@ -54,16 +55,16 @@ public class MainActivity extends AppCompatActivity {
                     int statusCode  = response.code();
                     switch (statusCode){
                         case 404:
-                            Toast.makeText(MainActivity.this, "Your request cannot be found", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, DoorDashContants.NOT_FOUND, Toast.LENGTH_SHORT).show();
                             break;
                         case 408:
-                            Toast.makeText(MainActivity.this, "Your request has timed out", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, DoorDashContants.TIMED_OUT, Toast.LENGTH_SHORT).show();
                             break;
                         case 500:
-                            Toast.makeText(MainActivity.this, "Something's wrong with the server", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, DoorDashContants.SERVICE_WRONG, Toast.LENGTH_SHORT).show();
                             break;
                         case 503:
-                            Toast.makeText(MainActivity.this, "The service is unavailable", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, DoorDashContants.SERVICE_UNAVAILABLE, Toast.LENGTH_SHORT).show();
                             break;
                     }
                 }

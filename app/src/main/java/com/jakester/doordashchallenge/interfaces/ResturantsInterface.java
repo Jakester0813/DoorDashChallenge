@@ -1,6 +1,7 @@
 package com.jakester.doordashchallenge.interfaces;
 
 import com.jakester.doordashchallenge.models.Resturant;
+import com.jakester.doordashchallenge.models.ResturantsResponse;
 
 import java.util.List;
 
@@ -13,6 +14,6 @@ import retrofit2.http.Query;
  */
 
 public interface ResturantsInterface {
-    @GET("v2/resturant/?lat=37.422740&lng=-122.139956")
+    @GET("v2/restaurant/?lat=37.422740&lng=-122.139956")
     Call<List<Resturant>> getResturants();
 }

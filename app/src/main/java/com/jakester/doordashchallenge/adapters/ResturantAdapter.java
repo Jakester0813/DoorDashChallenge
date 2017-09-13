@@ -23,9 +23,12 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.Rest
     List<Resturant> resturantList;
     Context mContext;
 
-    ResturantAdapter(List<Resturant> resturants, Context pContext){
-        this.resturantList = resturants;
+    public ResturantAdapter(Context pContext){
         this.mContext = pContext;
+    }
+
+    public void setAdapter(List<Resturant> pResturants){
+        this.resturantList = pResturants;
     }
 
     @Override
@@ -36,7 +39,7 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.Rest
 
     @Override
     public void onBindViewHolder(ResturantViewHolder holder, int position) {
-        holder.bind(resturantList.get(position));
+        holder.bind(resturantList.get(position), mContext);
     }
 
     @Override
@@ -63,7 +66,7 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.Rest
             Glide.with(pContext).load(resturant.getCoverImgUrl()).into(mResturantCover);
             mResturantNameText.setText(resturant.getBusiness().getName());
             mDescriptionText.setText(resturant.getDescription());
-            
+
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.jakester.doordashchallenge.models;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -10,10 +11,11 @@ import java.util.List;
  */
 
 public class ResturantsResponse {
+    @SerializedName("resturant")
     @Expose
     List<Resturant> resturants;
 
-    public List<Resturant> getResturants(){
+    public List<Resturant> getResturantList(){
         return resturants;
     }
 
